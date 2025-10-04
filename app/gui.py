@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from tkinter.scrolledtext import ScrolledText
 from PIL import Image, ImageTk
+from app.info import oop_explanations, model_brief
 from app.model import text_model, image_model
 
 class AppGUI:
@@ -10,6 +11,9 @@ class AppGUI:
         self.root.title("HIT137 GUI")
         self.image_path = None
         self._build()
+        # Show info at startup
+        info_text = oop_explanations() + "\n\n" + model_brief(text_model, image_model)
+        messagebox.showinfo("Info", info_text)
 
     def _build(self):
         top = tk.Frame(self.root); top.pack(fill="x")
