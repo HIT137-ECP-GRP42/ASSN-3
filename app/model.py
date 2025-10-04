@@ -27,7 +27,8 @@ class ImageClassificationModel(BaseModel):
         super().__init__(model_name, "image-classification")
 
     def run(self, pil_image: Image.Image, top_k: int = 5):
-        return self.model(images=pil_image, top_k=top_k)
+        return self.model(pil_image, top_k=top_k)
+
 
 TEXT_MODEL_NAME = "sshleifer/tiny-gpt2"  
 text_model = TextModel(TEXT_MODEL_NAME)
